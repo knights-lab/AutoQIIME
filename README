@@ -8,3 +8,7 @@ PREREQUISITES:
 2. The green genes database must be installed and path to appropriate tree must be provided
 3. QIIME must be installed
 4. Python 3+ must be installed
+
+USAGE:
+
+./do.qiime.py -i rawsequencefile -o outputdir -t ggtreepath [-s similarity]

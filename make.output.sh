@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-# Usage: generate.output.sh workingdir otutable ggtreefile [raredepth]
+# Usage: make.output.sh workingdir otutable ggtreefile [raredepth]
 
 DIR=$1
 OTU=$2
