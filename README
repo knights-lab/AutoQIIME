@@ -9,6 +9,15 @@ PREREQUISITES:
 3. QIIME must be installed
 4. Python 3+ must be installed
 
-USAGE:
+usage: do.qiime.py [-h] -i INPUTFILE -o OUTPUTDIR -t GGTREEFILE [-s {0}]
 
-./do.qiime.py -i rawsequencefile -o outputdir -t ggtreepath [-s similarity]
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUTFILE, --inputfile INPUTFILE
+                        Raw sequences file
+  -o OUTPUTDIR, --outputdir OUTPUTDIR
+                        Output directory
+  -t GGTREEFILE, --ggtreefile GGTREEFILE
+                        Green Genes tree file
+  -s {0}, --similarity {0}
+                        Similarity threshold for OTU clustering, default: .97
