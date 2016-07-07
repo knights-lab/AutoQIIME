@@ -1,0 +1,10 @@
+README
+Version 7/7/2016
+
+This python wrapper picks reference based OTUs using NINJA-OPS and the Green Genes database, then generates standard QIIME outputs with and without rarefaction applied.
+
+PREREQUISITES:
+1. Version 1.5.1 of NINJA-OPS must be installed and added to the PATH environment variable
+2. The green genes database must be installed and path to appropriate tree must be provided
+3. QIIME must be installed
+4. Python 3+ must be installed
