@@ -67,7 +67,8 @@ def main():
 
         # format bash script with params here:
         print('Picking OTUs...')
-        command_pickotus = '%s -i %s -o %s -s %s -z' % (ninjafile, args.inputfile, args.outputdir, args.similarity)
+        command_pickotus = '\"%s\" -i \"%s\" -o \"%s\" -s \"%s\" -z' % (ninjafile, args.inputfile, args.outputdir, args.similarity)
+        print(command_pickotus)
         if run_command(command_pickotus)==1: # raise an exception here instead 
             raise RuntimeError('Error while picking OTUs')     
     
@@ -75,7 +76,7 @@ def main():
         os.rename(args.outputdir + "/ninja_otutable.biom", args.outputdir + "/otu.biom")
 
         print('Generating QIIME output...')
-        command_generate_output = './make.output.sh %s %s %s 2>&1 | tee -a %s' % (args.outputdir, args.outputdir+"/otu.biom", args.ggtreefile, args.outputdir+"/qiime.log.txt")
+        command_generate_output = './make.output.sh \"%s\" \"%s\" \"%s\" 2>&1 | tee -a \"%s\"' % (args.outputdir, args.outputdir+"/otu.biom", args.ggtreefile, args.outputdir+"/qiime.log.txt")
         if run_command(command_generate_output)==1:
             raise RuntimeError('Error while generating QIIME output')
 
@@ -89,7 +90,7 @@ def main():
             raise TypeError(1, 'Depth is not a number')
 
         print('Rarefying and generating QIIME output ...')
-        command_generate_output_rare = './make.output.sh %s %s %s %s 2>&1 | tee -a %s' % (args.outputdir, args.outputdir+"/otu.biom", args.ggtreefile, depth, args.outputdir+"/qiime.log.rare.txt")
+        command_generate_output_rare = './make.output.sh \"%s\" \"%s\" \"%s\" \"%s\" 2>&1 | tee -a \"%s\"' % (args.outputdir, args.outputdir+"/otu.biom", args.ggtreefile, depth, args.outputdir+"/qiime.log.rare.txt")
         if run_command(command_generate_output_rare)==1:
             raise RuntimeError('Error while generating QIIME output for rarefied OTU table')
             
