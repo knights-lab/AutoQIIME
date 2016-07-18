@@ -83,9 +83,9 @@ def main():
         # print up to 50 lines of biom summary 
         file = open(args.outputdir + "/otu_summary.txt", 'r')
         for i in range(1,50):
-            file.readline()
+            print(file.readline())
 
-        depth = raw_input('Please enter a rarefaction depth:')
+        depth = input('Please enter a rarefaction depth:')
         if not depth.isdigit(): 
             raise TypeError(1, 'Depth is not a number')
 
