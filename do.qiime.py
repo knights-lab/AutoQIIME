@@ -78,6 +78,9 @@ def main():
         # if generating rarefied QIIME output only, check that OTU table exists
         otutable = args.outputdir+"/otu.biom"
         if (args.rarefaction=="rarefaction"):
+            if args.rarefactionlevel is None:
+                raise TypeError(1, 'Rarefaction level must be provided when running in Rarefaction Only mode')
+
             if not os.path.exists(args.otutable):
                 raise FileNotFoundError(1, 'Cannot locate OTU table file', args.otutable)
             else:

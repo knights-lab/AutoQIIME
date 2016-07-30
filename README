@@ -12,20 +12,23 @@ PREREQUISITES:
 
 usage: do.qiime.py [-h] -i INPUTFILE -o OUTPUTDIR -t GGTREEFILE [-s {0}]
 
-optional arguments:
   -h, --help            show this help message and exit
+
+required arguments:
   -i INPUTFILE, --inputfile INPUTFILE
                         Raw sequences file
   -o OUTPUTDIR, --outputdir OUTPUTDIR
                         Output directory
   -t GGTREEFILE, --ggtreefile GGTREEFILE
                         Green Genes tree file
+
+optional arguments:
   -r {rarefaction,norarefaction,both}, --rarefaction {rarefaction,norarefaction,both}
-                        Run with rarefaction only, without rarefaction, or with both. Note that when using rarefaction only, OTU table must be named “otu.biom” and placed in the output directory.
+                        Run with rarefaction only, without rarefaction, or with both. 
   -l RAREFACTIONLEVEL, --rarefactionlevel RAREFACTIONLEVEL
-                        Rarefaction level, if known
+                        Rarefaction level, if known (required if running with rarefaction only)
   -b OTUTABLE, --otutable OTUTABLE
-                        OTU table for generating rarefied QIIME output only
+                        OTU table in BIOM format for generating rarefied QIIME output only
   -s {0}, --similarity {0}
                         Similarity threshold for OTU clustering, default: .97
 
