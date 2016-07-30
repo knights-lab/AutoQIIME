@@ -14,7 +14,7 @@ usage: do.qiime.py [-h] -i INPUTFILE -o OUTPUTDIR -t GGTREEFILE [-s {0}]
 
   -h, --help            show this help message and exit
 
-required arguments:
+REQUIRED:
   -i INPUTFILE, --inputfile INPUTFILE
                         Raw sequences file
   -o OUTPUTDIR, --outputdir OUTPUTDIR
@@ -22,17 +22,17 @@ required arguments:
   -t GGTREEFILE, --ggtreefile GGTREEFILE
                         Green Genes tree file
 
-optional arguments:
+OPTIONAL:
   -r {rarefaction,norarefaction,both}, --rarefaction {rarefaction,norarefaction,both}
                         Run with rarefaction only, without rarefaction, or with both. 
   -l RAREFACTIONLEVEL, --rarefactionlevel RAREFACTIONLEVEL
-                        Rarefaction level, if known (required if running with rarefaction only)
+                        Rarefaction level, if known {positive integer} (required if running with rarefaction only)
   -b OTUTABLE, --otutable OTUTABLE
                         OTU table in BIOM format for generating rarefied QIIME output only
   -s {0}, --similarity {0}
-                        Similarity threshold for OTU clustering, default: .97
+                        Similarity threshold for OTU clustering {number between 0 and 1}, default: .97
 
-Examples:
+EXAMPLES:
 
 1. [Default behavior] Picks OTUs on raw sequences, then generates QIIME output without rarefaction, then prompts the user to pick a rarefaction depth before proceeding with generated rarefied QIIME output.
 	do.qiime.py -i seqs.fna -o ./output -t ./trees/97_otus.tree 
