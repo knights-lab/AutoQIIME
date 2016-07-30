@@ -4,10 +4,9 @@ Version 7/7/2016
 This python wrapper picks reference based OTUs using NINJA-OPS and the Green Genes database, then generates standard QIIME outputs with and without rarefaction applied.
 
 
-
 PREREQUISITES:
 1. Version 1.5.1 of NINJA-OPS must be installed and added to the PATH environment variable
-2. The green genes database must be installed and path to appropriate tree must be provided
+2. The green genes database must be installed and path to appropriate tree must be provided as an argument
 3. QIIME must be installed
 4. Python 3+ must be installed
 
@@ -21,5 +20,25 @@ optional arguments:
                         Output directory
   -t GGTREEFILE, --ggtreefile GGTREEFILE
                         Green Genes tree file
+  -r {rarefaction,norarefaction,both}, --rarefaction {rarefaction,norarefaction,both}
+                        Run with rarefaction only, without rarefaction, or with both. Note that when using rarefaction only, OTU table must be named “otu.biom” and placed in the output directory.
+  -l RAREFACTIONLEVEL, --rarefactionlevel RAREFACTIONLEVEL
+                        Rarefaction level, if known
+  -b OTUTABLE, --otutable OTUTABLE
+                        OTU table for generating rarefied QIIME output only
   -s {0}, --similarity {0}
                         Similarity threshold for OTU clustering, default: .97
+
+Examples:
+
+1. [Default behavior] Picks OTUs on raw sequences, then generates QIIME output without rarefaction, then prompts the user to pick a rarefaction depth before proceeding with generated rarefied QIIME output.
+	do.qiime.py -i seqs.fna -o ./output -t ./trees/97_otus.tree 
+
+2. Pick OTUs on raw sequences, then generate QIIME output without rarefaction. This is useful for large datasets that are to be run in the background and does not wait for user input.
+	do.qiime.py -i seqs.fna -o ./output -t ./trees/97_otus.tree -r norarefaction
+
+3. Pick OTUs on raw sequences, then generate QIIME output with rarefaction only, subsampling at a depth of 1000 sequences per sample. This is useful for large datasets that are to be run in the background. You should determine the rarefaction level prior to running this (e.g. examine the non-rarefied OTU table BIOM summary output).
+	do.qiime.py -i seqs.fna -o ./output -t ./trees/97_otus.tree -r rarefaction -b ./otutable.biom -l 1000
+
+4. Picks OTUs on raw sequences, then generates QIIME output without rarefaction, then generates rarefied QIIME output with a predetermined rarefaction level of 1000 sequences per depth (not recommended unless you are sure about your desired depth).
+	do.qiime.py -i seqs.fna -o ./output -t ./trees/97_otus.tree -l 1000
