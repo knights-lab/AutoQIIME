@@ -8,7 +8,7 @@ PREREQUISITES:
 1. Version 1.5.1 of NINJA-OPS must be installed and added to the PATH environment variable
 2. The green genes database must be installed and path to appropriate tree must be provided as an argument
 3. QIIME must be installed
-4. Python 3+ must be installed
+4. Python 2.7 must be installed
 
 usage: do.qiime.py [-h] -i INPUTFILE -o OUTPUTDIR -t GGTREEFILE [-s {0}]
 

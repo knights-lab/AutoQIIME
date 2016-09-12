@@ -113,8 +113,7 @@ def main():
                         print(file.readline())
 
                     depth = input('Please enter a rarefaction depth:')
-                    if not depth.isdigit(): 
-                        raise TypeError(1, 'Depth is not a number')
+                    # this will automatically check for numeric type (if not numeric, will throw exception)
 
         if (args.rarefaction=="both") or (args.rarefaction=="rarefaction"):
             print('Rarefying and generating QIIME output ...')
