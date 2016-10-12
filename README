@@ -1,14 +1,13 @@
 README
-Version 7/7/2016
+Version 9/12/2016
 
-This python wrapper picks reference based OTUs using NINJA-OPS and the Green Genes database, then generates standard QIIME outputs with and without rarefaction applied.
+This python wrapper picks reference based OTUs using NINJA-OPS and the Green Genes database, then generates standard QIIME outputs with and without rarefaction applied. Note that without rarefaction applied, the OTU table will be normalized prior to Bray-Curtis metric calculation only.
 
 
 PREREQUISITES:
 1. Version 1.5.1 of NINJA-OPS must be installed and added to the PATH environment variable
 2. The green genes database must be installed and path to appropriate tree must be provided as an argument
-3. QIIME must be installed
-4. Python 2.7 must be installed
+3. Dependencies: QIIME 1.9.1, Python 2.7, BIOM 2.1+
 
 usage: do.qiime.py [-h] -i INPUTFILE -o OUTPUTDIR -t GGTREEFILE [-s {0}]
 
@@ -31,6 +30,7 @@ OPTIONAL:
                         OTU table in BIOM format for generating rarefied QIIME output only
   -s {0}, --similarity {0}
                         Similarity threshold for OTU clustering {number between 0 and 1}, default: .97
+
 
 EXAMPLES:
 

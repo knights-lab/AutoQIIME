@@ -94,7 +94,7 @@ def main():
             if run_command(command_pickotus)==1: # raise an exception here instead 
                 raise RuntimeError('Error while picking OTUs')     
     
-            #rename otu file
+            # rename otu file
             os.rename(args.outputdir + "/ninja_otutable.biom", args.outputdir + "/otu.biom")
 
             print('Generating QIIME output...')
